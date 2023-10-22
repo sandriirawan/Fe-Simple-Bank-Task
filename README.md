@@ -1,7 +1,7 @@
 <br />
 <p align="center">
 <div align="center">
-  <img height="150" <img src="./src//assets//img/iconUser1.png" alt="logo" border="0"/>
+  <img height="150" <img src="./src//assets//img/ImgATM.png" alt="logo" border="0"/>
 </div>
   <h3 align="center">Simple Bank</h3>
   <p align="center">
