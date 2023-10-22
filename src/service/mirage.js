@@ -33,10 +33,22 @@ export const useServer = () => {
           const transactions = schema.transactions.where({ users_id: userId });
           return transactions;
         });
+        
+        this.post("/transactions", (schema, request) => {
+          const attrs = JSON.parse(request.requestBody);
+          const newTransactionId = schema.transactions.all().models.length + 1;
 
-        // this.get("/transaction", (schema) => {
-        //   return schema.transactions.all();
-        // });
+          const newTransaction = {
+            transaction_id: newTransactionId,
+            users_id: 1,
+            transaction: "Expenses",
+            ...attrs,
+          };
+
+          const transaction = schema.transactions.create(newTransaction);
+
+          return transaction;
+        });
       },
       seeds(server) {
         server.db.loadData({
@@ -49,6 +61,7 @@ export const useServer = () => {
               balance: 5000000,
               income: 5000000,
               expenses: 1000000,
+              expenses_date: "2023-10-20",
             },
             {
               id: 2,
@@ -58,6 +71,7 @@ export const useServer = () => {
               balance: 10000000,
               income: 10000000,
               expenses: 2000000,
+              expenses_date: "2023-10-20",
             },
             {
               id: 3,
@@ -67,6 +81,7 @@ export const useServer = () => {
               balance: 2000000,
               income: 2000000,
               expenses: 500000,
+              expenses_date: "2023-10-20",
             },
             {
               id: 4,
@@ -76,18 +91,16 @@ export const useServer = () => {
               balance: 6000000,
               income: 6000000,
               expenses: 3000000,
+              expenses_date: "2023-10-20",
             },
           ],
           transactions: [
             {
               transaction_id: 1,
+              users_id: 1,
               customer_name: "Alice Johnson",
               customer_email: "alice@example.com",
-              description: "lorem ipsum",
-              total_price: 150,
-              invoice_date: "2023-10-04",
-              users_id: 1,
-              transaction: "Income",
+              transaction: "Expenses",
               transaction_amount: 5000,
               transaction_date: "2023-10-01",
               transaction_description: "Initial Balance",
@@ -97,10 +110,7 @@ export const useServer = () => {
               users_id: 2,
               customer_name: "Bob Smith",
               customer_email: "bob@example.com",
-              description: "lorem ipsum",
-              total_price: 120,
-              invoice_date: "2023-10-05",
-              transaction: "Income",
+              transaction: "Expenses",
               transaction_amount: 7500,
               transaction_date: "2023-10-02",
               transaction_description: "First Deposit",
@@ -110,9 +120,6 @@ export const useServer = () => {
               users_id: 1,
               customer_name: "Charlie Brown",
               customer_email: "charlie@example.com",
-              description: "lorem ipsum",
-              total_price: 30,
-              invoice_date: "2023-10-06",
               transaction: "Expenses",
               transaction_amount: 1000,
               transaction_date: "2023-10-03",

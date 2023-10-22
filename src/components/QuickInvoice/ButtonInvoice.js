@@ -1,12 +1,14 @@
 import React from "react";
 
-function ButtonInvoice() {
+function ButtonInvoice(props) {
+  const { onClick } = props;
+
   return (
     <div className="flex lg:flex-row flex-col lg:justify-between lg:mt-5 mt-10 justify-center">
       <div className="lg:w-64 w-60 mb-3 lg:mb-0">
         <button
           type="button"
-          className="bg-white text-primary hover:bg-blue-950 hover:border-none hover:text-white border font-bold lg:w-64 w-60 h-16 border-primary rounded-xl"
+          className="bg-white text-primary hover:bg-blue-400 hover:border-none hover:text-white border font-bold lg:w-64 w-60 h-16 border-primary rounded-xl"
         >
           Add more details
         </button>
@@ -14,7 +16,8 @@ function ButtonInvoice() {
       <div className="lg:w-64 w-60 mb-3 lg:mb-0">
         <button
           type="button"
-          className=" hover:bg-blue-950 bg-primary text-white font-bold lg:w-64 w-60 h-16 rounded-xl"
+          className=" hover:bg-blue-400 bg-primary text-white font-bold lg:w-64 w-60 h-16 rounded-xl"
+          onClick={onClick}
         >
           Send Money
         </button>

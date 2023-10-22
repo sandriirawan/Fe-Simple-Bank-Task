@@ -30,7 +30,6 @@ function App() {
       fetch("/api/transactions?userId=1")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.transactions, "dadad");
           setTransactionDetail(data.transactions);
         });
     } catch (e) {
@@ -42,6 +41,30 @@ function App() {
     handleMigrae();
   }, []);
 
+  const handlePostTransaction = async (transactionData) => {
+    try {
+      const response = await fetch("/api/transactions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(transactionData),
+      });
+  
+      if (response.status === 201) {
+        fetch("/api/transactions?userId=1")
+          .then((response) => response.json())
+          .then((data) => {
+            setTransactionDetail(data.transactions);
+          });
+      } else {
+        console.error("Failed to add the transaction");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+  
   return (
     <div
       className=" 
@@ -74,10 +97,13 @@ function App() {
         >
           <div className="">
             <AllExpenses userWithId1={userWithId1} />
-            <QuickInvoice users={users} />
+            <QuickInvoice users={users} handlePostTransaction={handlePostTransaction} />
           </div>
           <div className="">
-            <MyCard userWithId1={userWithId1} transactionDetail={transactionDetail} />
+            <MyCard
+              userWithId1={userWithId1}
+              transactionDetail={transactionDetail}
+            />
           </div>
         </div>
       </div>

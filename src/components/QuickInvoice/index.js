@@ -5,7 +5,7 @@ import ButtonInvoice from "./ButtonInvoice";
 import CustomerInvoice from "./CustomerInvoice";
 
 function QuickInvoice(props) {
-  const { users } = props;
+  const { users,handlePostTransaction } = props;
 
   return (
     <div className="lg:604 lg:h-auto bg-white h-auto p-5 mb-3 md:w-604 ">
@@ -16,8 +16,8 @@ function QuickInvoice(props) {
         </div>
       </div>
       <CustomerInvoice users={users} />
-      <CustomerInput />
-      <ButtonInvoice />
+      <CustomerInput handlePostTransaction={handlePostTransaction} />
+     
     </div>
   );
 }

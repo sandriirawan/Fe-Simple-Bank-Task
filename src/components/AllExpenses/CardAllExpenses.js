@@ -8,6 +8,14 @@ import IconExpenses from "../../assets/icons/IconExpenses";
 function CardAllExpenses(props) {
   const { userWithId1 } = props;
 
+  function formatMonthYear(dateString) {
+    const formattedDate = new Date(dateString);
+    return formattedDate.toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+    });
+  }
+
   return (
     <div className="flex flex-wrap lg:justify-between items-center justify-center -ml-1.5">
       <div className="bg-primary w-44 h-auto rounded-xl p-3 m-1.5">
@@ -57,7 +65,13 @@ function CardAllExpenses(props) {
         </div>
         <div className="mt-2">
           <h6 className="text-primary text-base font-semibold">Expenses</h6>
-          <h6 className="text-primary font-normal text-sm">April 2022</h6>
+          <h6 className="text-primary font-normal text-sm">
+            <h6 className="text-primary font-normal text-sm">
+              {userWithId1
+                ? formatMonthYear(userWithId1.expenses_date)
+                : "Loading..."}
+            </h6>
+          </h6>
           <h6 className="text-primary font-semibold text-2xl">
             {userWithId1
               ? new Intl.NumberFormat("id-ID", {

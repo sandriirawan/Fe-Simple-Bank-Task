@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import ButtonInvoice from "./ButtonInvoice";
 
-function CustomerInput() {
+function CustomerInput({ handlePostTransaction }) {
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [description, setDescription] = useState("");
+  const [itemAmount, setItemAmount] = useState("");
+
+  const handleAddTransaction = () => {
+    const transactionData = {
+      customer_name: customerName,
+      customer_email: customerEmail,
+      transaction_description: description,
+      transaction_amount: parseFloat(itemAmount),
+    };
+
+    handlePostTransaction(transactionData);
+    setCustomerName("");
+    setCustomerEmail("");
+    setDescription("");
+    setItemAmount("");
+  };
+
   return (
-    <>
-      {" "}
-      <div className="flex lg:flex-row flex-col justify-between  ">
-        <div className="lg:w-64 w-auto ">
+    <div>
+      <div className="flex lg:flex-row flex-col justify-between">
+        <div className="lg:w-64 w-auto">
           <label
             className="block text-secondary text-sm font-bold mb-1"
             htmlFor="inputField"
@@ -17,9 +37,11 @@ function CustomerInput() {
             className="w-full py-2 px-3 border rounded placeholder-gray-400"
             type="text"
             placeholder="Type customer name"
+            value={customerName}
+            onChange={(e) => setCustomerName(e.target.value)}
           />
         </div>
-        <div className="lg:w-64 w-auto ">
+        <div className="lg:w-64 w-auto">
           <label
             className="block text-secondary text-sm font-bold mb-1"
             htmlFor="inputField"
@@ -31,45 +53,53 @@ function CustomerInput() {
             className="w-full py-2 px-3 border rounded placeholder-gray-400"
             type="text"
             placeholder="Type customer email"
+            value={customerEmail}
+            onChange={(e) => setCustomerEmail(e.target.value)}
           />
         </div>
       </div>
-      <div className="flex lg:flex-row flex-col justify-between  ">
-        <div className="lg:w-64 w-auto ">
+      <div className="flex lg:flex-row flex-col justify-between">
+        <div className="lg:w-64 w-auto">
           <label
             className="block text-secondary text-sm font-bold mb-1"
             htmlFor="inputField"
           >
-            Item name
+            Description
           </label>
           <input
             id="inputField"
             className="w-full py-2 px-3 border rounded placeholder-gray-400"
             type="text"
-            placeholder="Type customer name"
+            placeholder="Type description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div className="lg:w-64 w-auto ">
+        <div className="lg:w-64 w-auto">
           <label
             className="block text-secondary text-sm font-bold mb-1"
             htmlFor="dropdownField"
           >
-            Item mount
+            Item amount
           </label>
           <select
             id="dropdownField"
             className="w-full py-2 px-3 border rounded"
+            defaultValue=""
+            value={itemAmount}
+            onChange={(e) => setItemAmount(e.target.value)}
           >
-            <option value="" disabled selected className="text-gray-400">
-              USD
+            <option value="" disabled>
+              IDR
             </option>
-            <option value="option1">Opsi 1</option>
-            <option value="option2">Opsi 2</option>
-            <option value="option3">Opsi 3</option>
+            <option value="50000">50000</option>
+            <option value="100000">100000</option>
+            <option value="500000">500000</option>
           </select>
         </div>
       </div>
-    </>
+      <ButtonInvoice onClick={handleAddTransaction} />
+    </div>
   );
 }
 
