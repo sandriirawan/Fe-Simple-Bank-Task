@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+<br />
+<p align="center">
+<div align="center">
+  <img height="150" <img src="./src//assets//img/iconUser1.png" alt="logo" border="0"/>
+</div>
+  <h3 align="center">Simple Bank</h3>
+  <p align="center">
+    <a href="https://blanja-delta.vercel.app/home"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://blanja-delta.vercel.app/home">View Demo</a>
+  </p>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+### Built With
 
-### `npm start`
+- [React js](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- and other
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+This is an example of how to list things you need to use the software and how to install them.
+- [VS Code](https://code.visualstudio.com/)
+- [nodejs](https://nodejs.org/en/download/)
+- [React js](https://reactjs.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone This Front End Repo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/sandriirawan/Fe-Simple-Bank-Task
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Go To Folder Repo
 
-### `npm run eject`
+```
+cd Fe-Simple-Bank-Task
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Install Module
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn || npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Code Splitting
+## Related Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+:rocket: [`Demo`](https://blanja-delta.vercel.app/home)
