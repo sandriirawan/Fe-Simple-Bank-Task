@@ -8,7 +8,7 @@ function HeaderCard(props) {
   return (
     <div className="relative flex">
       <img src={ImgATM} className="absolute" alt="Deskripsi Gambar" />;
-      <div className="bg-transparent rounded-lg mb-3 p-6 relative  w-[420px] h-[215px] ">
+      <div className="bg-transparent rounded-lg mb-3 lg:p-6 p-4 relative w-[420px] h-[215px] ">
         <div
           className="flex flex-row justify-between items-center "
           style={{ zIndex: 999999 }}
@@ -23,7 +23,7 @@ function HeaderCard(props) {
             <Image />
           </div>
         </div>
-        <div className="mt-14">
+        <div className="lg:mt-14 mt-10">
           <div className="text-right text-white font-semibold text-2xl">
             {userWithId1 ? userWithId1.card_number : "Loading..."}
           </div>
