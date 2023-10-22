@@ -73,7 +73,7 @@ function App() {
           className="bg-background-700 lg:p-3 flex flex-col lg:flex-row gap-3 w-screen h-screen p-0 "
         >
           <div className="">
-            <AllExpenses />
+            <AllExpenses userWithId1={userWithId1} />
             <QuickInvoice users={users} />
           </div>
           <div className="">
