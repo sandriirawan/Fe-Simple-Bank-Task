@@ -3,8 +3,7 @@ import HistoryCard from "./HistoryCard";
 import HeaderCard from "./HeaderCard";
 
 function MyCard(props) {
-  const { userWithId1, transaction } = props;
-  console.log(transaction, "ajhdjad");
+  const { userWithId1, transactionDetail } = props;
 
   return (
     <div className="bg-white lg:w-900 lg:h-[628px] w-screen h-auto p-5">
@@ -16,7 +15,7 @@ function MyCard(props) {
       </div>
       <h6 className="text-gray-400">13 April 2022</h6>
       <div className="space-y-3 mt-4">
-        {transaction?.map((item, index) => (
+        {transactionDetail?.map((item, index) => (
           <HistoryCard key={index} item={item} />
         ))}
       </div>

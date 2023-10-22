@@ -28,9 +28,15 @@ export const useServer = () => {
           return schema.balance.all();
         });
 
-        this.get("/transaction", (schema) => {
-          return schema.transactions.all();
+        this.get("/transactions", (schema, request) => {
+          const userId = parseInt(request.queryParams.userId);
+          const transactions = schema.transactions.where({ users_id: userId });
+          return transactions;
         });
+
+        // this.get("/transaction", (schema) => {
+        //   return schema.transactions.all();
+        // });
       },
       seeds(server) {
         server.db.loadData({

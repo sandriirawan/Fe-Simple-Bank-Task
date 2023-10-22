@@ -10,7 +10,7 @@ import { useServer } from "./service/mirage";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [users, setUsers] = useState([]);
-  const [transaction, setTransaction] = useState([]);
+  const [transactionDetail, setTransactionDetail] = useState([]);
   const [userWithId1, setUserWithId1] = useState(null);
   const { setupMigrae } = useServer();
 
@@ -25,13 +25,13 @@ function App() {
       fetch("/api/users/1")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setUserWithId1(data.user);
         });
-      fetch("/api/transaction")
+      fetch("/api/transactions?userId=1")
         .then((response) => response.json())
         .then((data) => {
-          setTransaction(data.transactions);
+          console.log(data.transactions, "dadad");
+          setTransactionDetail(data.transactions);
         });
     } catch (e) {
       console.log(e);
@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     handleMigrae();
-  }, [handleMigrae]);
+  }, []);
 
   return (
     <div
@@ -77,7 +77,7 @@ function App() {
             <QuickInvoice users={users} />
           </div>
           <div className="">
-            <MyCard userWithId1={userWithId1} transaction={transaction} />
+            <MyCard userWithId1={userWithId1} transactionDetail={transactionDetail} />
           </div>
         </div>
       </div>
