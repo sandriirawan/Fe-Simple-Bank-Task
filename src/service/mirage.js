@@ -19,9 +19,11 @@ export const useServer = () => {
           return schema.users.find(1);
         });
 
-        this.post("/users", (schema, request) => {
+        this.put("/users/1", (schema, request) => {
           const attrs = JSON.parse(request.requestBody);
-          return schema.users.create(attrs);
+          const user = schema.users.find(1);
+          user.update(attrs);
+          return user;
         });
 
         this.get("/balance", (schema) => {
@@ -33,7 +35,7 @@ export const useServer = () => {
           const transactions = schema.transactions.where({ users_id: userId });
           return transactions;
         });
-        
+
         this.post("/transactions", (schema, request) => {
           const attrs = JSON.parse(request.requestBody);
           const newTransactionId = schema.transactions.all().models.length + 1;
@@ -42,6 +44,7 @@ export const useServer = () => {
             transaction_id: newTransactionId,
             users_id: 1,
             transaction: "Expenses",
+            transaction_date: new Date(),
             ...attrs,
           };
 

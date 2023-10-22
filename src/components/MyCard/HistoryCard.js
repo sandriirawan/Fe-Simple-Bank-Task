@@ -2,13 +2,15 @@ import React from "react";
 
 function HistoryCard(props) {
   const { item } = props;
+  const transactionDate = new Date(item?.transaction_date).toISOString().split('T')[0];
+
   return (
     <div className="bg-gray-200 w-auto h-13 flex justify-between items-center p-4 rounded-xl">
       <div>
         <div className="text-secondary font-bold w-36 lg:w-auto">
           {item?.transaction_description}
         </div>
-        <div className="text-gray-400">{item?.transaction_date}</div>
+        <div className="text-gray-400">{transactionDate}</div>
       </div>
       <div
         className={
