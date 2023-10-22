@@ -27,7 +27,7 @@ function CustomerInput({ handlePostTransaction }) {
       <div className="flex lg:flex-row flex-col justify-between">
         <div className="lg:w-64 w-auto">
           <label
-            className="block text-secondary text-sm font-bold mb-1"
+            className="block text-secondary text-sm font-bold mb-2 lg:mb-2"
             htmlFor="inputField"
           >
             Customer name
@@ -43,7 +43,7 @@ function CustomerInput({ handlePostTransaction }) {
         </div>
         <div className="lg:w-64 w-auto">
           <label
-            className="block text-secondary text-sm font-bold mb-1"
+            className="block text-secondary text-sm font-bold mb-2 lg:mb-2"
             htmlFor="inputField"
           >
             Customer Email
@@ -61,7 +61,7 @@ function CustomerInput({ handlePostTransaction }) {
       <div className="flex lg:flex-row flex-col justify-between">
         <div className="lg:w-64 w-auto">
           <label
-            className="block text-secondary text-sm font-bold mb-1"
+            className="block text-secondary text-sm font-bold mb-2 lg:mb-2"
             htmlFor="inputField"
           >
             Description
@@ -77,7 +77,7 @@ function CustomerInput({ handlePostTransaction }) {
         </div>
         <div className="lg:w-64 w-auto">
           <label
-            className="block text-secondary text-sm font-bold mb-1"
+            className="block text-secondary text-sm font-bold mb-2 lg:mb-2"
             htmlFor="dropdownField"
           >
             Item amount

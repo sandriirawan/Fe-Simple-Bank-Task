@@ -6,6 +6,7 @@ import QuickInvoice from "./components/QuickInvoice";
 import Burger from "./assets/icons/IconBurger";
 import IconUser1 from "./assets/icons/IconUser1";
 import { useServer } from "./service/mirage";
+import Swal from "sweetalert2";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,21 +51,35 @@ function App() {
         },
         body: JSON.stringify(transactionData),
       });
-  
+
       if (response.status === 201) {
+        Swal.fire({
+          title: "Success!",
+          text: "Transaction added successfully.",
+          icon: "success",
+        });
         fetch("/api/transactions?userId=1")
           .then((response) => response.json())
           .then((data) => {
             setTransactionDetail(data.transactions);
           });
       } else {
-        console.error("Failed to add the transaction");
+        Swal.fire({
+          title: "Error",
+          text: "Failed to add the transaction.",
+          icon: "error",
+        });
       }
     } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: "An error occurred while adding the transaction.",
+        icon: "error",
+      });
       console.error("An error occurred:", error);
     }
   };
-  
+
   return (
     <div
       className=" 
@@ -97,7 +112,10 @@ function App() {
         >
           <div className="">
             <AllExpenses userWithId1={userWithId1} />
-            <QuickInvoice users={users} handlePostTransaction={handlePostTransaction} />
+            <QuickInvoice
+              users={users}
+              handlePostTransaction={handlePostTransaction}
+            />
           </div>
           <div className="">
             <MyCard
